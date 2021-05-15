@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "609d088b4447fdc2802e1d71"
+  },
+  "status": 1,
+  "add_time": 1620904063991,
+  "title": "市场管理",
+  "description": "市场管理",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609d08d6e4b733c3c85209e3"
+  },
+  "status": 1,
+  "add_time": 1620904141694,
+  "title": "销售管理",
+  "description": "销售管理",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609d09b57b6bfd8ba81f81fc"
+  },
+  "status": 1,
+  "add_time": 1620904350522,
+  "title": "财务管理",
+  "description": "财务管理",
+  "__v": 0
+}]

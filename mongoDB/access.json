@@ -1,0 +1,139 @@
+[{
+  "_id": {
+    "$oid": "609e612071bfcc48b4b664e2"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "管理员管理",
+  "add_time": 1620992284365,
+  "module_name": "管理员管理",
+  "action_name": "",
+  "type": "0",
+  "url": "",
+  "module_id": "0",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609e662349ec30db0089434a"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "角色管理--模块",
+  "add_time": 1620993549792,
+  "module_name": "角色管理",
+  "type": "0",
+  "action_name": "",
+  "url": "",
+  "module_id": "0",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609e669249ec30db0089434d"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "管理员列表--菜单",
+  "add_time": 1620993549792,
+  "module_name": "管理员管理",
+  "type": "0",
+  "action_name": "管理员列表",
+  "url": "/admin/manager",
+  "module_id": {
+    "$oid": "609e612071bfcc48b4b664e2"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609e66da49ec30db0089434f"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "增加管理员--菜单",
+  "add_time": 1620993549792,
+  "module_name": "管理员管理",
+  "type": "0",
+  "action_name": "增加管理员",
+  "url": "/admin/manager/add",
+  "module_id": {
+    "$oid": "609e612071bfcc48b4b664e2"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609f379769b7405738e48c37"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "角色列表--菜单",
+  "add_time": 1621046593395,
+  "module_name": "角色管理",
+  "type": "1",
+  "action_name": "角色列表",
+  "url": "/admin/role",
+  "module_id": {
+    "$oid": "609e662349ec30db0089434a"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609f37ee69b7405738e48c38"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "增加角色--菜单",
+  "add_time": 1621046593395,
+  "module_name": "角色管理",
+  "type": "1",
+  "action_name": "增加角色",
+  "url": "/admin/role/add",
+  "module_id": {
+    "$oid": "609e662349ec30db0089434a"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609f40c45e6cd3dab032c62b"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "修改角色1--操作",
+  "add_time": 1621049509423,
+  "module_name": "权限管理",
+  "type": "0",
+  "action_name": "修改角色1",
+  "url": "/admin/role/edit",
+  "module_id": {
+    "$oid": "609e663b49ec30db0089434b"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609f44606acdde094c91221c"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "权限列表2--菜单",
+  "add_time": 1621050240417,
+  "module_name": "权限管理",
+  "type": "1",
+  "action_name": "权限列表2",
+  "url": "/admin/access",
+  "module_id": {
+    "$oid": "609f443a6acdde094c91221b"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609f63c328bdae1140ec31c4"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "权限管理--模块",
+  "add_time": 1621058391630,
+  "module_name": "权限管理",
+  "type": "0",
+  "action_name": "",
+  "url": "",
+  "module_id": "0",
+  "__v": 0
+}]
