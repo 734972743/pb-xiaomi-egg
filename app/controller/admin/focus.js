@@ -7,7 +7,16 @@ const pump = require("mz-modules/pump");  //引入 pump 用于处理文件上传
 
 class FocusController extends BaseController {
   async index() {
-    await this.ctx.render("admin/focus/index");
+
+    let focusList = await this.ctx.model.Focus.find({});
+
+    focusList.forEach(item=>{
+      item.focus_img = "http://127.0.0.1:7001/app"+  item.focus_img;
+    })
+
+    await this.ctx.render("admin/focus/index",{
+      focusList
+    });
   }
 
 
