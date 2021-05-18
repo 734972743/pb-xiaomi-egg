@@ -1,40 +1,19 @@
 <ul class="aside">
-         		
-  <li>
-    <h4>管理员管理</h4>
-    
-    <ul>
-      <li  class="list-group-item"> <a href="/admin/manager"> 管理员列表</a></li>
-      
-      <li class="list-group-item"> <a href="/admin/manager/add">增加管理员</a></li>
-    </ul>
-  </li>
-  <li>
-    <h4>角色管理</h4>
-    <ul>
-      <li  class="list-group-item"> <a href="/admin/role"> 角色列表</a></li>
-      
-      <li class="list-group-item"> <a href="/admin/role/add" >增加角色</a></li>
-    </ul>
-  </li>
-  <li>
-    <h4>权限管理</h4>
-    
-    <ul>
-      <li  class="list-group-item"> <a href="/admin/access"> 权限列表</a></li>
-      
-      <li class="list-group-item"> <a href="/admin/access/add">增加权限</a></li>
-    </ul>
-  </li>
   
-  <li>
-    <h4>轮播图管理</h4>
-    
-    <ul>
-      <li  class="list-group-item"> <a href="/">轮播图列表</a></li>
-      
-      <li class="list-group-item"> <a href="/add">轮播图商品</a></li>
-    </ul>
-  </li>
+  <%for(let i=0; i<accessList.length; i++){%>
+    <li>
+      <%if((accessList[i].module_id == '0'  && accessList[i].checked ) || userInfo.is_super == 1){%>
+        <h4> <%=accessList[i].module_name%>  </h4>
+      <%}%>
+      <ul>
+        <%for(let j=0; j<accessList[i].items.length; j++){%>
+          <% if((accessList[i].items[j].type != 2 && accessList[i].items[j].checked) || (userInfo.is_super == 1 && accessList[i].items[j].type != 2) ){%>
+            <li  class="list-group-item"> <a href="<%=accessList[i].items[j].url%>"> <%=accessList[i].items[j].action_name%></a></li>
+          <%}%>
+        <%}%>
+       
+      </ul>
+    </li>
+  <%}%>
   
 </ul>

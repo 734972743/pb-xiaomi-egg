@@ -67,23 +67,7 @@ class RoleController extends BaseController {
   async auth() {
 
     let role_id = this.ctx.request.query._id;
-
-    //获取所有的权限列表
-    let accessList = await this.ctx.model.Access.aggregate([
-      {
-        $lookup:{
-          from: "access",
-          localField: "_id",
-          foreignField: "module_id",
-          as:"items"
-        }
-      },
-      {
-        $match:{
-          "module_id": "0"
-        }
-      }
-    ]);
+    let accessList = await this.ctx.service.admin.authList(role_id);
     
     await this.ctx.render("admin/role/auth.html",{
       accessList,
@@ -91,10 +75,19 @@ class RoleController extends BaseController {
     });
   }
 
+
+  //权限编辑
+  async authEdit(){
+   
+    
+
+    
+
+  }
+
   async doAuth() {
 
     let body = this.ctx.request.body;
-    console.log("body",body);
 
     let {role_id, access_node} = body;
 

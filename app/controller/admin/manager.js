@@ -55,7 +55,6 @@ class ManagerController extends BaseController {
       let password = await this.ctx.service.tools.md5(body.password);  //密码进行md5加密
       body.password = password;
 
-      console.log("body",body);
       let admin = new this.ctx.model.Admin(body);
   
       let result = await admin.save();

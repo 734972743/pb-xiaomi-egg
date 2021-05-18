@@ -50,10 +50,19 @@ module.exports = appInfo => {
     
   };
 
+  //配置上传文件的设置 ，
+  config.multipart = {
+      // fileExtensions: [ '.apk'， ] // 增加对 apk 扩展名的文件支持
+      // whitelist: [ '.png', "jpeg", "jpg" ],  //// 覆盖整个白名单，只允许上传 '.png' ."jpeg"等 格式
+
+  }
+
+
 
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+    uploadPath: "app/public/admin/upload"
   };
 
   return {

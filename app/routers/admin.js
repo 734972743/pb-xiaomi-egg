@@ -14,9 +14,18 @@ module.exports = app => {
 
   
 
-
+  //公共的路由
   router.get('/admin/verify', controller.admin.base.verify);
   router.get('/admin/delete', controller.admin.base.delete);
+  router.get('/admin/changeStatus', controller.admin.base.changeStatus);
+
+
+  //文件上传路由
+  // router.get('/admin/focus', controller.admin.focus.index);
+  // router.post('/admin/focus/doSingleUpload', controller.admin.focus.doSingleUpload);
+  // router.get('/admin/focus/multi', controller.admin.focus.multi);
+  // router.post('/admin/focus/doMultiUpload', controller.admin.focus.doMultiUpload);
+  
 
 
   router.get('/admin/manager', controller.admin.manager.index);
@@ -40,6 +49,11 @@ module.exports = app => {
   router.post('/admin/access/doAdd', controller.admin.access.doAdd);
   router.get('/admin/access/edit', controller.admin.access.edit);
   router.post('/admin/access/doEdit', controller.admin.access.doEdit);
+
+  //轮播图
+  router.get('/admin/focus', controller.admin.focus.index);
+  router.get('/admin/focus/add', controller.admin.focus.add);
+  router.post('/admin/focus/doMultiUpload', controller.admin.focus.doMultiUpload);
 
 
 };

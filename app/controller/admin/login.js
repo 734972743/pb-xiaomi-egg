@@ -11,7 +11,6 @@ class LoginController extends BaseController {
   async doLogin() {
     //1获取表单的数据
     let body = this.ctx.request.body;
-    // console.log("body", body);
 
     let verify = body.verify;
     //2 判断验证码是否正确
@@ -24,10 +23,17 @@ class LoginController extends BaseController {
         "username": username,
         "password": password
       });
-
       if(result.length > 0){
         this.ctx.session.userInfo = result[0];
-        await this.success("/admin/manager" ,"");
+
+        //跳转到你拥有的权限列表的第一个列表
+        let accessList = await this.ctx.service.admin.authList(result[0].role_id);
+        let redirectUrl = "";
+        console.log("accessList",accessList);
+        if(accessList &&  accessList.length >0 && accessList[0] && accessList[0].items.length > 0){
+          redirectUrl = accessList[0].items[0].url;
+        }
+        await this.success(redirectUrl ,"");
       }else{
         await this.error("/admin/login" ,"用户名或密码不正确");
       }

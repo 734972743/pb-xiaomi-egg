@@ -24,7 +24,6 @@ class AccessController extends BaseController {
         }
       }
     ])
-    console.log(JSON.stringify(accessList), )
     await this.ctx.render("admin/access/index.html", {
       accessList
     });
@@ -33,10 +32,10 @@ class AccessController extends BaseController {
   async add() {
 
     //获取所有的模块  module_id 为 0 的模块
-    let accessList = await this.ctx.model.Access.find({"module_id": "0"});
+    let accessArr = await this.ctx.model.Access.find({"module_id": "0"});
 
     await this.ctx.render("admin/access/add.html",{
-      accessList
+      accessArr
     });
   }
 

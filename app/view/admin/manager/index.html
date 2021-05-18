@@ -56,7 +56,7 @@
                             <td><%=adminList[i].username%></td>
                             <td><%=adminList[i].mobile%></td>
                             <td><%=adminList[i].email%></td>
-                            <td><%=adminList[i].status%></td>
+                            <td> <img src="<%= adminList[i].status == '1' ? '/public/admin/images/yes.gif' : '/public/admin/images/no.gif' %>" onclick="app.changeStatus(this, 'Admin', 'status', '<%=adminList[i]._id%>')" /> </td>
                             <td><%=adminList[i].role[0].title%></td>
                             <td><%=adminList[i].add_time%></td>
                             <td><%=adminList[i].is_super%></td>
