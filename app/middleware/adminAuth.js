@@ -19,6 +19,8 @@ module.exports = options => {
       let role_id = ctx.session.userInfo.role_id;
       let accessList = await ctx.service.admin.authList(role_id);
       ctx.state.accessList = accessList;
+
+      console.log("---- adminAuth -----", accessList);
     }
 
 
@@ -40,9 +42,6 @@ module.exports = options => {
 
     let isAuth = await ctx.service.admin.checkAuth();
     if(isAuth){
-
-
-
 
       await next();
     }else{

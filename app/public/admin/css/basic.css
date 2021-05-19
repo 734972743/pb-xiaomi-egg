@@ -61,8 +61,29 @@ table .th{
 	background: #EEEEEE;
 }
 
+table tbody tr td .pic{
+    max-width: 100px;
+}
+
+.table tbody tr td span{
+    padding: 0 5px;
+    display: block;
+    text-align: center;
+}
+
+.table tbody tr td span input {
+    max-width: 60px;
+   
+    /* padding: 0 20px;
+    min-width: 20px; */
+}
+
  .input-form li{
     margin: 5px 0px;
+}
+
+.input-form .pic{
+    max-width:  100px;
 }
 
 input[type=file]{
@@ -78,4 +99,27 @@ input[type=file]{
 
 .navbar{
 	border-radius: 0px;
+}
+
+.aside li h4 .nav_bottom{
+    display: inline-block;
+    border-left: 10px solid transparent;
+    border-top: 10px solid white;
+    border-right: 10px solid transparent;
+    border-bottom: none;
+    position: absolute;
+    left: 164px;
+    top: 14px;
+}
+
+
+.aside li h4 .nav_top{
+    display: inline-block;
+    border-left: 10px solid transparent;
+    border-top: none;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #e2dcdc;
+    position: absolute;
+    left: 164px;
+    top: 14px;
 }

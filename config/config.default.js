@@ -44,7 +44,8 @@ module.exports = appInfo => {
   //配置mongoose数据库
   config.mongoose = {
     client:{
-      url: 'mongodb://eggadmin:123456@127.0.0.1/eggxiaomi',
+      url: 'mongodb://eggadmin:123456@106.75.93.168:27017/eggxiaomi',  //服务器地址
+      // url: 'mongodb://eggadmin:123456@127.0.0.1:27017/eggxiaomi',
       options: {},
     }
     

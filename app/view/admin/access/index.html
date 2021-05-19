@@ -70,7 +70,7 @@
                         <td> <img src="<%= accessList[i].status == '1' ? '/public/admin/images/yes.gif' : '/public/admin/images/no.gif' %>" onclick="app.changeStatus(this, 'Access', 'status', '<%=accessList[i]._id%>')" />   </td>
 
                         <td><%=accessList[i].sort%></td>
-                        <td><%=accessList[i].add_time%></td>
+                        <td><%=helper.formatDate(accessList[i].add_time) %></td>
                         <td><%=accessList[i].description%></td>
                       
                         <td class="text-center"><a href="/admin/access/edit?_id=<%=accessList[i]._id%>">修改</a>  </td>
@@ -94,10 +94,10 @@
                                 <td><%=accessList[i].items[j].url%></td>
                                 <td><img src="<%= accessList[i].items[j].status == '1' ? '/public/admin/images/yes.gif' : '/public/admin/images/no.gif' %>" onclick="app.changeStatus(this, 'Access', 'status', '<%=accessList[i].items[j]._id%>')"   </td>
                                 <td><%=accessList[i].items[j].sort%></td>
-                                <td><%=accessList[i].items[j].add_time%></td>
+                                <td><%=helper.formatDate(accessList[i].add_time)%></td>
                                 <td><%=accessList[i].items[j].description%></td>
                                 
-                                <td class="text-center"><a href="/admin/access/edit?_id=<%=accessList[i].items[j]._id%>">修改</a>   <a href="/admin/delete?model=Access&_id=<%=accessList[i].items[j]._id%>">删除</a></td>
+                                <td class="text-center"><a href="/admin/access/edit?_id=<%=accessList[i].items[j]._id%>">修改</a>   <a class="delete" href="/admin/delete?model=Access&_id=<%=accessList[i].items[j]._id%>">删除</a></td>
                             </tr>
                         <%}%>
 					<%}%>

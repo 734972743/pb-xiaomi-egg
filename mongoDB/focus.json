@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "60a3a2017fae6b29959c16c0"
+  },
+  "status": 0,
+  "add_time": 1621336500805,
+  "focus_img": "/public/admin/upload/20210519/1621392205510.jpeg",
+  "title": "轮播图21",
+  "link": "/admin/focus/add",
+  "sort": 1001,
+  "__v": 0,
+  "type": 1
+},{
+  "_id": {
+    "$oid": "60a46d5945f64d10c488b327"
+  },
+  "status": 1,
+  "add_time": 1621388419406,
+  "focus_img": "/public/admin/upload/20210519/1621388633554.png",
+  "title": "市场管理",
+  "link": "www.baidu.com",
+  "sort": 0,
+  "__v": 0,
+  "type": 1
+}]

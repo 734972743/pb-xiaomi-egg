@@ -4,13 +4,28 @@
   },
   "status": 1,
   "add_time": 1620908614974,
-  "is_super": 0,
+  "is_super": 1,
   "username": "admin",
   "password": "e10adc3949ba59abbe56e057f20f883e",
   "mobile": "12345678912",
   "email": "123456@qq.com",
   "role_id": {
     "$oid": "609d08d6e4b733c3c85209e3"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a22074f99913983c90e690"
+  },
+  "status": 0,
+  "add_time": 1621237841821,
+  "is_super": 0,
+  "username": "lisi",
+  "password": "e10adc3949ba59abbe56e057f20f883e",
+  "mobile": "1234567891",
+  "email": "123456@qq.com",
+  "role_id": {
+    "$oid": "609d088b4447fdc2802e1d71"
   },
   "__v": 0
 }]

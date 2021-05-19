@@ -78,6 +78,32 @@ class BaseController extends Controller {
      }
   }
 
+
+  //修改数字
+  async editNum(){
+    // 获取要修改的数据库， 属性， 待更新的id
+     let {  model, attr, value, id } = this.ctx.request.query; 
+
+     //先判断一下这个值是否存在
+     let result = await this.ctx.model[model].find({"_id": id});
+
+     let json = null;
+     if(result.length > 0){
+
+      json = {
+        [attr]: value
+      }
+     }
+
+     //修改属性
+
+     let updateResult = await this.ctx.model[model].updateOne({"_id":id}, json);
+     if(updateResult){
+       this.ctx.body={"message":"更新成功", "success": true};
+     }else{
+       this.ctx.body={"message":"更新失败", "success": false};
+     }
+  }
   
 }
 

@@ -40,6 +40,7 @@
                         <th>编号</th>
                         <th>标题</th>
                         <th>图片</th>
+                        <th>分类</th>
                         <th>链接地址</th>
                         <th>状态</th>
                         <th>排序</th>
@@ -54,16 +55,29 @@
                             <td><%=i+1%></td>
                             <td><%=focusList[i].title%></td>
                             <td>
-                                <img src="<%=focusList[i].focus_img%>"
+                                <img class="pic" src="<%=focusList[i].focus_img%>" />
                             </td>
+
+                            <td>
+                                <%if(focusList[i].type ==1){%>
+                                     网站
+                                <%}else if(focusList[i].type ==2){%>
+                                     APP
+                                <%}else if(focusList[i].type ==3){%>
+                                     小程序
+                                <%}else{%>
+                                     其他类型
+                                <%}%>
+                            </td>
+
                             <td><%=focusList[i].link%></td>
 
                             <td> <img src="<%= focusList[i].status == '1' ? '/public/admin/images/yes.gif' : '/public/admin/images/no.gif' %>" onclick="app.changeStatus(this, 'Focus', 'status', '<%=focusList[i]._id%>')" />   </td>
 
-                            <td><%=focusList[i].sort%></td>
-                            <td><%=focusList[i].add_time%></td>
+                            <td><span onclick="app.editNum(this,'Focus', 'sort', '<%=focusList[i]._id%>')"><%=focusList[i].sort%></span> </td>
+                            <td><%=helper.formatDate(focusList[i].add_time)%></td>
                         
-                            <td class="text-center"><a href="/admin/focus/edit?_id=<%=accessList[i]._id%>">修改</a>  </td>
+                            <td class="text-center"><a href="/admin/focus/edit?_id=<%=focusList[i]._id%>">修改</a>  <a class="delete" href="/admin/delete?model=Focus&_id=<%=focusList[i]._id%>">删除</a> </td>
                         </tr>
 					<%}%>
 

@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "609e612071bfcc48b4b664e2"
   },
-  "status": 1,
+  "status": 0,
   "sort": 100,
   "description": "管理员管理",
   "add_time": 1620992284365,
@@ -25,38 +25,6 @@
   "action_name": "",
   "url": "",
   "module_id": "0",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "609e669249ec30db0089434d"
-  },
-  "status": 1,
-  "sort": 100,
-  "description": "管理员列表--菜单",
-  "add_time": 1620993549792,
-  "module_name": "管理员管理",
-  "type": "0",
-  "action_name": "管理员列表",
-  "url": "/admin/manager",
-  "module_id": {
-    "$oid": "609e612071bfcc48b4b664e2"
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "609e66da49ec30db0089434f"
-  },
-  "status": 1,
-  "sort": 100,
-  "description": "增加管理员--菜单",
-  "add_time": 1620993549792,
-  "module_name": "管理员管理",
-  "type": "0",
-  "action_name": "增加管理员",
-  "url": "/admin/manager/add",
-  "module_id": {
-    "$oid": "609e612071bfcc48b4b664e2"
-  },
   "__v": 0
 },{
   "_id": {
@@ -92,22 +60,6 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "609f40c45e6cd3dab032c62b"
-  },
-  "status": 1,
-  "sort": 100,
-  "description": "修改角色1--操作",
-  "add_time": 1621049509423,
-  "module_name": "权限管理",
-  "type": "0",
-  "action_name": "修改角色1",
-  "url": "/admin/role/edit",
-  "module_id": {
-    "$oid": "609e663b49ec30db0089434b"
-  },
-  "__v": 0
-},{
-  "_id": {
     "$oid": "609f44606acdde094c91221c"
   },
   "status": 1,
@@ -135,5 +87,155 @@
   "action_name": "",
   "url": "",
   "module_id": "0",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a2226da5093796700cd293"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "权限列表-菜单",
+  "add_time": 1621238202712,
+  "module_name": "权限管理",
+  "type": "1",
+  "action_name": "权限列表",
+  "url": "/admin/access",
+  "module_id": {
+    "$oid": "609f63c328bdae1140ec31c4"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a222c7a5093796700cd295"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "修改权限--操作",
+  "add_time": 1621238202712,
+  "module_name": "权限管理",
+  "type": "2",
+  "action_name": "修改权限",
+  "url": "/admin/access/edit",
+  "module_id": {
+    "$oid": "609f63c328bdae1140ec31c4"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a2345b9d7b1d60dcb3aaae"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "增加权限--菜单",
+  "add_time": 1621242880182,
+  "module_name": "权限管理",
+  "type": "0",
+  "action_name": "增加权限",
+  "url": "/admin/access/add",
+  "module_id": {
+    "$oid": "609f63c328bdae1140ec31c4"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a235079d7b1d60dcb3aaaf"
+  },
+  "status": 0,
+  "sort": 100,
+  "description": "管理员列表--菜单",
+  "add_time": 1621242880182,
+  "module_name": "管理员管理",
+  "type": "0",
+  "action_name": "管理员列表",
+  "url": "/admin/manager",
+  "module_id": {
+    "$oid": "609e612071bfcc48b4b664e2"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a2351f9d7b1d60dcb3aab0"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "增加管理员--菜单",
+  "add_time": 1621242880182,
+  "module_name": "管理员管理",
+  "type": "0",
+  "action_name": "增加管理员",
+  "url": "/admin/manager/add",
+  "module_id": {
+    "$oid": "609e612071bfcc48b4b664e2"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a2380582885ac3b8565fc1"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "轮播图管理--模块",
+  "add_time": 1621243804218,
+  "module_name": "轮播图管理",
+  "type": "0",
+  "action_name": "",
+  "url": "",
+  "module_id": "0",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a31de6f794ada0dca6eb6d"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "100",
+  "add_time": 1621302743495,
+  "module_id": {
+    "$oid": "60a31de6f794ada0dca6eb6c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a31e0df1451e70f8d8dc43"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "100",
+  "add_time": 1621302788415,
+  "module_id": {
+    "$oid": "60a31e0df1451e70f8d8dc42"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a46c04e05f85250c6a82db"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "轮播图列表--菜单",
+  "add_time": 1621388090615,
+  "module_name": "轮播图管理",
+  "type": "1",
+  "action_name": "轮播图列表",
+  "url": "/admin/focus",
+  "module_id": {
+    "$oid": "60a2380582885ac3b8565fc1"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a46c35e05f85250c6a82dc"
+  },
+  "status": 1,
+  "sort": 100,
+  "description": "增加轮播图--菜单",
+  "add_time": 1621388090615,
+  "module_name": "轮播图管理",
+  "type": "1",
+  "action_name": "增加轮播图",
+  "url": "/admin/focus/add",
+  "module_id": {
+    "$oid": "60a2380582885ac3b8565fc1"
+  },
   "__v": 0
 }]

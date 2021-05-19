@@ -40,6 +40,8 @@
                         <th>编号</th>
                         <th>角色名称</th>
                         <th>角色描述</th>
+                        <th>创建时间</th>
+                        <th>状态</th>
                         <th class="text-center">操作</th>
                     </tr>
                     </thead>
@@ -50,7 +52,9 @@
                             <td><%=i+1%></td>
                             <td><%=list[i].title%></td>
                             <td><%=list[i].description%></td>
-                            <td class="text-center"><a href="/admin/role/auth?_id=<%=list[i]._id%>">授权</a>&nbsp; <a href="/admin/role/edit?_id=<%=list[i]._id%>">修改</a> &nbsp; <a href="/admin/delete?model=Role&_id=<%=list[i]._id%>">删除</a> </td>
+                            <td><%=helper.formatDate(list[i].add_time)%></td>
+                            <td><img src="<%= list[i].status == '1' ? '/public/admin/images/yes.gif' : '/public/admin/images/no.gif' %>" onclick="app.changeStatus(this, 'Role', 'status', '<%=list[i]._id%>')" /></td>
+                            <td class="text-center"><a href="/admin/role/auth?_id=<%=list[i]._id%>">授权</a>&nbsp; <a class="delete" href="/admin/role/edit?_id=<%=list[i]._id%>">修改</a> &nbsp; <a href="/admin/delete?model=Role&_id=<%=list[i]._id%>">删除</a> </td>
                         </tr>
                     <%}%>
 					  

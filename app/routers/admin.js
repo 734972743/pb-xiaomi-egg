@@ -6,7 +6,9 @@
 module.exports = app => {
   const { router, controller } = app;
 
-  router.redirect("/", "/admin/manager"); // 路由重定向
+  router.redirect("/", "/admin/main/index"); // 路由重定向
+  router.get("/admin", controller.admin.main.index); 
+  router.get("/admin/main/welcome", controller.admin.main.welcome); 
 
   router.get('/admin/login', controller.admin.login.index);
   router.post('/admin/doLogin', controller.admin.login.doLogin);
@@ -18,6 +20,7 @@ module.exports = app => {
   router.get('/admin/verify', controller.admin.base.verify);
   router.get('/admin/delete', controller.admin.base.delete);
   router.get('/admin/changeStatus', controller.admin.base.changeStatus);
+  router.get('/admin/editNum', controller.admin.base.editNum);
 
 
   //文件上传路由
@@ -54,6 +57,8 @@ module.exports = app => {
   router.get('/admin/focus', controller.admin.focus.index);
   router.get('/admin/focus/add', controller.admin.focus.add);
   router.post('/admin/focus/doMultiUpload', controller.admin.focus.doMultiUpload);
+  router.get('/admin/focus/edit', controller.admin.focus.edit);
+  router.post('/admin/focus/doEdit', controller.admin.focus.doEdit);
 
 
 };
