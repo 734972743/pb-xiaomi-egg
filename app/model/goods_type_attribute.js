@@ -10,7 +10,9 @@ module.exports = app => {
     title: {type: String},  //属性名称
     attr_type: {type:Number},  //属性类型： 1 input ; 2 textarea;  3 select
     attr_value: {type:String},   // 指定默认值，  1 2 的默认值为空， 3 select有默认值， 多个默认值已回车符隔开
-
+    sort:{  //排序
+      type:Number,
+    },
     add_time: {
       type: Number,
       default: d.getTime()

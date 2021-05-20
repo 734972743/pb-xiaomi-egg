@@ -8,6 +8,8 @@ class GoodsTypeAttributeController extends BaseController {
   async index() {
     let cate_id = this.ctx.request.query.id;
 
+    let goodsTypes = await this.ctx.model.GoodsType.find({"_id":cate_id});
+
     let list = await this.ctx.model.GoodsTypeAttribute.aggregate([
       {
         $lookup:{
@@ -24,13 +26,10 @@ class GoodsTypeAttributeController extends BaseController {
       }
     ]);
 
-    console.log(cate_id);
-    console.log(list);
-
-
     await this.ctx.render("admin/goodsTypeAttribute/index", {
       list,
-      cate_id
+      cate_id,
+      goodsType: goodsTypes[0]
     });  
   }
 
@@ -76,11 +75,12 @@ class GoodsTypeAttributeController extends BaseController {
 
   async doEdit() {
     let body = this.ctx.request.body;
+    console.log("body",body);
     let id = body.id;
-    let result = await this.ctx.model.GoodsType.updateOne({"_id":id} , body);
+    let result = await this.ctx.model.GoodsTypeAttribute.updateOne({"_id":id} , body);
 
     if(result){
-     await this.success("/admin/goodsType", "商品类型编辑成功");
+     await this.success("/admin/goodsTypeAttribute?id="+body.cate_id, "商品属性编辑成功");
     }
   }
 }

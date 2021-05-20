@@ -123,3 +123,30 @@ input[type=file]{
     left: 164px;
     top: 14px;
 }
+
+.fl{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
+.clear::after{
+    clear: both;
+    content: "";
+
+    height: 0;
+    display: block;
+}
+
+.form_input li span{
+    width:  100px;
+    display: inline-block;
+    text-align: right;
+}
+
+
+.input{
+    width: 400px;
+}

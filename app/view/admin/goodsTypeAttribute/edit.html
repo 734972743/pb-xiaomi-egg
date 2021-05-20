@@ -10,7 +10,7 @@
         </div>
         <div class="panel-body">
             <div class="table-responsive input-form">
-                <form action="/admin/goodsTypeAttribute/doAdd" method="post">
+                <form action="/admin/goodsTypeAttribute/doEdit" method="post">
                     <input type="hidden" name="_csrf" value="<%=csrf%>">
                     <input type="hidden" name="id" value="<%=data._id%>" >
                     <ul>
@@ -32,8 +32,10 @@
                         </li>
                         <li>
                             可选值列表:
-                            <textarea name="attr_value" id="" <%if(data.attr_value !=3){%>disabled<%}%>  cols="60" rows="8"><%=data.attr_value%></textarea>
+                            <textarea name="attr_value" id="" <%if(data.attr_type !=3){%> disabled <%}%>  cols="60" rows="8"><%=data.attr_value%></textarea>
                         </li>
+
+                        <li>  商品属性排序: <input type="text" name="sort" value="<%=data.sort%>" /> </li>
 
                         <li>
                             <br/>
