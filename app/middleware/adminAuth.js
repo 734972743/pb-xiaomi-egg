@@ -20,7 +20,6 @@ module.exports = options => {
       let accessList = await ctx.service.admin.authList(role_id);
       ctx.state.accessList = accessList;
 
-      console.log("---- adminAuth -----", accessList);
     }
 
 

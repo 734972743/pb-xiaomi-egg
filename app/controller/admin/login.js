@@ -28,13 +28,13 @@ class LoginController extends BaseController {
 
         //跳转到你拥有的权限列表的第一个列表
         let accessList = await this.ctx.service.admin.authList(result[0].role_id);
-        let redirectUrl = "/";
+        let redirectUrl = "/admin";
 
         // console.log("accessList",accessList);
         // if(accessList &&  accessList.length >0 && accessList[0] && accessList[0].items.length > 0){
         //   redirectUrl = accessList[0].items[0].url;
         // }
-        await this.success(redirectUrl ,"");
+        await this.success(redirectUrl );
       }else{
         await this.error("/admin/login" ,"用户名或密码不正确");
       }

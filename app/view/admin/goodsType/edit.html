@@ -6,19 +6,18 @@
           
     <div class="panel panel-default">              
         <div class="panel-heading">
-            编辑角色
+            编辑商品类型
         </div>
         <div class="panel-body">
             <div class="table-responsive input-form">
-                <form action="/admin/role/doEdit" method="post">
+                <form action="/admin/goodsType/doEdit" method="post">
+                    <input type="hidden" name="_csrf" value="<%=csrf%>">
+                    <input type="hidden" name="id" value="<%=data._id%>">
                     <ul>
-                        <input type="hidden" name="_csrf" value="<%=csrf%>">
-                        <input type="hidden" name="_id" value="<%=result._id%>">
-                        <li>  角色名称: <input type="text" name="title" value="<%=result.title%>" /></li>
-
+                        <li>  商品类型名称: <input type="text" name="title" value="<%=data.title%>"/></li>
                         <li>
-                            角色描述:
-                            <textarea name="description" id="" cols="60" rows="8"><%=result.description%></textarea>
+                            商品类型描述:
+                            <textarea name="description" id="" cols="60" rows="8"><%=data.description%></textarea>
                         </li>
 
                         <li>
@@ -36,6 +35,7 @@
 
     </div>
 
-      
+        
+
 </body>
 </html>

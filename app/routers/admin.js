@@ -6,7 +6,7 @@
 module.exports = app => {
   const { router, controller } = app;
 
-  router.redirect("/", "/admin/main/index"); // 路由重定向
+  router.redirect("/", "/admin"); // 路由重定向
   router.get("/admin", controller.admin.main.index); 
   router.get("/admin/main/welcome", controller.admin.main.welcome); 
 
@@ -60,5 +60,19 @@ module.exports = app => {
   router.get('/admin/focus/edit', controller.admin.focus.edit);
   router.post('/admin/focus/doEdit', controller.admin.focus.doEdit);
 
+  //商品管理
 
+  //商品类型
+  router.get('/admin/goodsType', controller.admin.goodsType.index);
+  router.get('/admin/goodsType/add', controller.admin.goodsType.add);
+  router.post('/admin/goodsType/doAdd', controller.admin.goodsType.doAdd);
+  router.get('/admin/goodsType/edit', controller.admin.goodsType.edit);
+  router.post('/admin/goodsType/doEdit', controller.admin.goodsType.doEdit);
+
+  //商品类型属性
+  router.get('/admin/goodsTypeAttribute', controller.admin.goodsTypeAttribute.index);
+  router.get('/admin/goodsTypeAttribute/add', controller.admin.goodsTypeAttribute.add);
+  router.post('/admin/goodsTypeAttribute/doAdd', controller.admin.goodsTypeAttribute.doAdd);
+  router.get('/admin/goodsTypeAttribute/edit', controller.admin.goodsTypeAttribute.edit);
+  router.post('/admin/goodsTypeAttribute/doEdit', controller.admin.goodsTypeAttribute.doEdit);
 };

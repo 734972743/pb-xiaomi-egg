@@ -6,7 +6,7 @@ $(function(){
 
 	app.deleteConfirm();
 
-	app.resizeIframe();
+	
 	
 })
 
@@ -115,12 +115,7 @@ $(function(){
 
 		}
 
-
-
 	}
 
 
-	$(window).resize(function(){
-		app.resizeIframe();
-	})
 
