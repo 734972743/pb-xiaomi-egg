@@ -10,7 +10,7 @@
         </div>
         <div class="panel-body">
             <div class="table-responsive input-form">
-                <form class="form_input" action="/admin/goodsType/doAdd?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
+                <form class="form_input" action="/admin/goodsCate/doAdd?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
                     <ul>
                         <li> <span>商品分类名称:</span> <input type="text" name="title" class="input"/></li>
                         <li> <span>商品分类图片:</span> <input type="file" name="cate_img" /></li>
@@ -19,7 +19,7 @@
                         <li> <span>商品上级分类:</span>
                             <select name="pid">
                                 <option value="0">--顶级分类--</option>
-                                <%for(let i=0; i<list.length; ii){%>
+                                <%for(let i=0; i<list.length; i++){%>
                                     <option value="<%=list[i]._id%>"><%=list[i].title%></option>
                                 <%}%>
                             </select>

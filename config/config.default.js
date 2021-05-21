@@ -55,6 +55,7 @@ module.exports = appInfo => {
   config.multipart = {
       // fileExtensions: [ '.apk'， ] // 增加对 apk 扩展名的文件支持
       // whitelist: [ '.png', "jpeg", "jpg" ],  //// 覆盖整个白名单，只允许上传 '.png' ."jpeg"等 格式
+      fields: "50"  , //设置上传图片的时候，表单字段最多允许的字段的数量，这个默认值是 10
 
   }
 

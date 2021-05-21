@@ -73,9 +73,6 @@ table tbody tr td .pic{
 
 .table tbody tr td span input {
     max-width: 60px;
-   
-    /* padding: 0 20px;
-    min-width: 20px; */
 }
 
  .input-form li{
@@ -138,6 +135,12 @@ input[type=file]{
 
     height: 0;
     display: block;
+}
+
+.form_input li{
+    padding: 15px 0;
+    border-bottom: 1px solid #d0d0d0;
+    box-sizing: border-box;
 }
 
 .form_input li span{

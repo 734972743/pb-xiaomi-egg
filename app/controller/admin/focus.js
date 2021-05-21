@@ -1,7 +1,6 @@
 'use strict';
 
 const BaseController = require("./base");
-const path = require("path");
 const fs = require("fs");
 const pump = require("mz-modules/pump");  //引入 pump 用于处理文件上传的
 

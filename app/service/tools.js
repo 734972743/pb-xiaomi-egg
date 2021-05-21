@@ -6,6 +6,7 @@ const md5 = require("md5");
 const sd = require("silly-datetime");
 const mkdirp = require('mz-modules/mkdirp');
 const path = require("path");
+const Jimp = require('jimp');
 /**
  * 这是一个工具类服务 ,可以给后台,前端项目都可以访问
  */
@@ -56,9 +57,27 @@ class ToolsService extends Service {
       uploadDir: fullName,
       saveDir: fullName.slice(3).replace(/\\/g, "/")
     }
-    
+  }
 
 
+  //生成缩略图
+ async jimpImg(target){
+    Jimp.read(target, (err, lenna) => {  //生成200 *200的
+      if (err) throw err;
+      lenna
+        .resize(200, 200) // resize   图片尺寸
+        .quality(90) // set JPEG quality  //图片质量
+        .write(target + "_200x200"+ path.extname(target)); // 保存的地址
+    });
+
+       // .greyscale() // set greyscale  设置黑白照片
+    Jimp.read(target, (err, lenna) => {  //生成 400 *400的
+      if (err) throw err;
+      lenna
+        .resize(400, 400) // resize   图片尺寸
+        .quality(90) // set JPEG quality  //图片质量
+        .write(target + "_400x400"+ path.extname(target)); // 保存的地址
+    });
   }
 }
 

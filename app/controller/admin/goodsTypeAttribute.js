@@ -83,6 +83,16 @@ class GoodsTypeAttributeController extends BaseController {
      await this.success("/admin/goodsTypeAttribute?id="+body.cate_id, "商品属性编辑成功");
     }
   }
+
+
+  async getByCateId(){
+    let cate_id = this.ctx.request.query.cate_id;
+    let data = await this.ctx.model.GoodsTypeAttribute.find({"cate_id":cate_id});
+    //使用this.ctx.body 来返回数据  
+    this.ctx.body = {
+      data
+    };
+  }
 }
 
 module.exports = GoodsTypeAttributeController;

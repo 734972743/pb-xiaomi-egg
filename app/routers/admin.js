@@ -75,9 +75,20 @@ module.exports = app => {
   router.post('/admin/goodsTypeAttribute/doAdd', controller.admin.goodsTypeAttribute.doAdd);
   router.get('/admin/goodsTypeAttribute/edit', controller.admin.goodsTypeAttribute.edit);
   router.post('/admin/goodsTypeAttribute/doEdit', controller.admin.goodsTypeAttribute.doEdit);
+  router.get('/admin/goodsTypeAttribute/getByCateId', controller.admin.goodsTypeAttribute.getByCateId);
 
   //商品分类
   router.get('/admin/goodsCate', controller.admin.goodsCate.index);
   router.get('/admin/goodsCate/add', controller.admin.goodsCate.add);
   router.post('/admin/goodsCate/doAdd', controller.admin.goodsCate.doAdd);
+  router.get('/admin/goodsCate/edit', controller.admin.goodsCate.edit);
+  router.post('/admin/goodsCate/doEdit', controller.admin.goodsCate.doEdit);
+
+
+  // 商品
+  router.get('/admin/goods', controller.admin.goods.index);
+  router.get('/admin/goods/add', controller.admin.goods.add);
+  router.post('/admin/goods/doAdd', controller.admin.goods.doAdd);
+  router.get('/admin/goods/edit', controller.admin.goods.edit);
+  router.post('/admin/goods/doEdit', controller.admin.goods.doEdit);
 };

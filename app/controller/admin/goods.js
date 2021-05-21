@@ -7,31 +7,40 @@ const pump = require("mz-modules/pump");  //引入 pump 用于处理文件上传
 class GoodsCateController extends BaseController {
   async index() {
     
-    let list = await this.ctx.model.GoodsCate.aggregate([
-      {
-        $lookup:{
-          from: "goods_cate",
-          localField: "_id",
-          foreignField: "pid",
-          as: "items"
-        }
-      },
-      {
-        $match:{
-          "pid":"0"
-        }
-      }
-    ]);
+    // let list = await this.ctx.model.Goods.aggregate([
+    //   {
+    //     $lookup:{
+    //       from: "goods_cate",
+    //       localField: "_id",
+    //       foreignField: "pid",
+    //       as: "items"
+    //     }
+    //   },
+    //   {
+    //     $match:{
+    //       "pid":"0"
+    //     }
+    //   }
+    // ]);
 
-    await this.ctx.render("admin/goodsCate/index",{
+    let list = await this.ctx.model.Goods.find({});
+
+    await this.ctx.render("admin/goods/index",{
         list
     });
   }
 
   async add() {
-    let list = await this.ctx.model.GoodsCate.find({"pid":"0"});
-    await this.ctx.render("admin/goodsCate/add",{
-        list
+
+    //获取所有的颜色类型
+    let goodsColorList = await this.ctx.model.GoodsColor.find({});
+
+    //获取所有的商品类型
+    let goodsTypeList = await this.ctx.model.GoodsType.find({});
+
+    await this.ctx.render("admin/goods/add",{
+        goodsColorList,
+        goodsTypeList
     });
   }
 
@@ -71,7 +80,7 @@ class GoodsCateController extends BaseController {
     let goodsCate = new this.ctx.model.GoodsCate(Object.assign(files,  parts.field));
     await goodsCate.save();
 
-    await this.success("/admin/goodsCate", "轮播图添加成功")
+    await this.success("/admin/goods", "轮播图添加成功")
  }
 
 
@@ -82,7 +91,7 @@ class GoodsCateController extends BaseController {
 
   //获取分类数组
   let cateList = await this.ctx.model.GoodsCate.find({"pid": "0"});
-  await this.ctx.render("admin/goodsCate/edit",{
+  await this.ctx.render("admin/goods/edit",{
       data: list[0],
       cateList
   });

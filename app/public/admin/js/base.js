@@ -14,6 +14,10 @@ $(function(){
 
 
 		init(){
+
+			//让左侧导航栏前三栏折叠
+			 $(".aside>li:nth-child(1) ul, .aside>li:nth-child(2) ul, .aside>li:nth-child(3) ul").hide();
+
 				$('.aside h4').click(function(){
 					//$(this).toggleClass('active');
 					$(this).siblings('ul').slideToggle();
