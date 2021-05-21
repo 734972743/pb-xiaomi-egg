@@ -153,3 +153,14 @@ input[type=file]{
 .input{
     width: 400px;
 }
+
+
+#photoLib{
+    margin:  40px auto 20pa auto;
+}
+
+
+/* webuploader按钮失效解决方案 */
+#photoLib div:nth-child(2){
+    width:100%!important;height:100%!important;  
+} 

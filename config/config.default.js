@@ -59,6 +59,19 @@ module.exports = appInfo => {
 
   }
 
+  //配置安全策略， csrf是否验证
+  config.security = {  
+    csrf:{
+      ignore: ctx=>{
+        if(ctx.request.url == "/admin/goods/uploadImage" || ctx.request.url == "/admin/goods/uploadPhoto"){  //这个请求，csrf 不验证
+          return true;
+        }
+        return false;
+      }
+    }
+    
+  };
+
 
 
   // add your user config here

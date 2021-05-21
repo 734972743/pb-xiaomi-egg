@@ -151,6 +151,69 @@ async doEdit() {
 }
 
 
+//商品详情图片上传
+async uploadImage() {
+  let parts = this.ctx.multipart({autoFields: true});  // 获取多文件上传流
+    let files = {} ;  //这个是用来存放 文件的名
+    let stream ; //这个是用来存放单个文件的
+    while((stream = await parts()) != null){
+      if(!stream.filename){   //如果没有传入图片就直接返回
+        break     
+      }
+      let fieldname = stream.fieldname;  //获取图片的name属性值
+      let uploadPath = await this.ctx.service.tools.getUploadPath(stream.filename);
+      let pathName = uploadPath.uploadDir;
+      let writeStream = fs.createWriteStream(pathName);
+      
+      await pump(stream, writeStream);
+
+      //对象合拼
+      files = Object.assign(files , {  
+        [fieldname]: uploadPath.saveDir // es6的属性名表达式
+      });
+
+      this.ctx.body = {  
+        link: files.file  //返回上传的图片地址给前端
+      }
+
+    }
+}
+
+
+
+
+//商品相册上传
+async uploadPhoto() {
+  let parts = this.ctx.multipart({autoFields: true});  // 获取多文件上传流
+    let files = {} ;  //这个是用来存放 文件的名
+    let stream ; //这个是用来存放单个文件的
+    while((stream = await parts()) != null){
+      if(!stream.filename){   //如果没有传入图片就直接返回
+        break     
+      }
+      let fieldname = stream.fieldname;  //获取图片的name属性值
+      let uploadPath = await this.ctx.service.tools.getUploadPath(stream.filename);
+      let pathName = uploadPath.uploadDir;
+      let writeStream = fs.createWriteStream(pathName);
+      
+      await pump(stream, writeStream);
+
+      //生成缩略图
+      this.ctx.service.tools.jimpImg(pathName);
+
+      //对象合拼
+      files = Object.assign(files , {  
+        [fieldname]: uploadPath.saveDir // es6的属性名表达式
+      });
+
+      this.ctx.body = {  
+        link: files.file  //返回上传的图片地址给前端
+      }
+
+    }
+}
+
+
 }
 
 module.exports = GoodsCateController;
