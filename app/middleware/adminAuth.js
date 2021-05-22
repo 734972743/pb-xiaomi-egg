@@ -18,6 +18,8 @@ module.exports = options => {
 
       let role_id = ctx.session.userInfo.role_id;
       let accessList = await ctx.service.admin.authList(role_id);
+      // console.log("----------accessList---------------");
+      // console.log(accessList);
       ctx.state.accessList = accessList;
 
     }
@@ -45,7 +47,10 @@ module.exports = options => {
       await next();
     }else{
       // ctx.redirect("/admin/manager");
-      ctx.body = "你没有权限访问当前地址";
+      // ctx.body = "你没有权限访问当前地址";
+
+      //没有权限
+      ctx.redirect("/admin/login");
     }
     
 

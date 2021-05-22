@@ -18,8 +18,14 @@ class AdminService extends Service {
 
     let userInfo = this.ctx.session.userInfo;
       let pathname = url.parse(this.ctx.request.url).pathname;
+
+      
       if(ignoreUrl.indexOf(pathname) > -1 || (userInfo && userInfo.is_super == 1)){
         return true;
+      }
+
+      if(!userInfo){
+        return false;
       }
   
       //2 根据用户 来获取 role_id；

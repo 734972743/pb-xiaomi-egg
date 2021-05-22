@@ -28,12 +28,12 @@ src="/public/admin/wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
 
         <div class="panel-body">
             <div class="table-responsive input_form">
-                <form action="/admin/goods/doAdd" method="post" class="goods_content">
+                <form action="/admin/goods/doAdd?_csrf=<%=csrf%>" method="post" class="goods_content" enctype="multipart/form-data">
                      <!-- Nav tabs -->
                      <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#general"  role="tab" data-toggle="tab">通用信息</a></li>
                         <li role="presentation"><a href="#detail" role="tab" data-toggle="tab">详细描述</a></li>
-                        <li role="presentation"><a href="#mix"  role="tab" data-toggle="tab">商品属性</a></li>
+                        <li role="presentation"><a href="#mix"  role="tab" data-toggle="tab">其他信息</a></li>
                         <li role="presentation"><a href="#attribute"  role="tab" data-toggle="tab">规格与包装</a></li>
                         <li role="presentation"><a href="#photo"  role="tab" data-toggle="tab">商品相册</a></li>              
                      </ul>
@@ -47,16 +47,23 @@ src="/public/admin/wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
                                         <li> <span> 商品标题:</span> <input type="text" name="title" class="input"/></li>                            
                                         <li> <span> 附属标题:</span> <input type="text" name="sub_title" class="input"/></li>
                                         <li>  <span>商品版本:</span> <input type="text" name="goods_version" class="input"/></li>                            
-                                        <li>  <span>所属分类:</span> <select name="cid" id="cid">
+                                        <li>  <span>所属分类:</span> 
                                             
+                                            <select name="cate_id" >
+                                                <%for(let i=0; i<goodsCateList.length; i++){%>
+                                                    <option value="<%=goodsCateList[i]._id%>"><%=goodsCateList[i].title%></option>
+
+                                                    <%for(let j=0; j<goodsCateList[i].items.length; j++){%>
+                                                        <option value="<%=goodsCateList[i].items[j]._id%>">----<%=goodsCateList[i].items[j].title%></option>
+                                                    <%}%>
+                                                <%}%>
+
                                             </select>
                     
-                                            <input type="hidden" name="cname" id="cname" />    
-                    
                                         </li>
-                                        <li> <span> 商品图片:</span> <input type="file" name="pic"/></li>
-                                        <li>  <span>商品价格:</span> <input type="text" name="price"/></li>
-                                        <li>  <span>商品原价:</span>  <input type="text" name="old_price"/></li>
+                                        <li> <span> 商品图片:</span> <input type="file" name="goods_img"/></li>
+                                        <li>  <span>商品价格:</span> <input type="text" name="shop_price"/></li>
+                                        <li>  <span>市场原价:</span>  <input type="text" name="market_price"/></li>
             
                                         <li> <span>商品状态:</span>　<input type="radio" value="1" name="status" checked/> 显示                                    　
                                             <input type="radio" value="0" name="status"/>  隐藏
@@ -72,7 +79,7 @@ src="/public/admin/wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
 
                         <div role="tabpanel" class="tab-pane" id="detail">
 
-                            <textarea name="content" id="content" cols="100" rows="8"></textarea>
+                            <textarea name="goods_content" id="content" cols="100" rows="8"></textarea>
                         </div>
 
                         <div role="tabpanel" class="tab-pane" id="mix">
@@ -82,40 +89,37 @@ src="/public/admin/wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
                                         <li> <span>商品颜色:</span>
                                              
                                             <%for(let i=0; i<goodsColorList.length; i++){%>
-                                              <input type="checkbox" name="goods_color" value="<%=goodsColorList[i].color_value%>" id="goods_color<%=goodsColorList[i]._id%>"> <label for="goods_color<%=goodsColorList[i]._id%>"><%=goodsColorList[i].color_name%></label>
+                                              <input type="checkbox" name="goods_color" value="<%=goodsColorList[i]._id%>" id="goods_color<%=goodsColorList[i]._id%>"> <label for="goods_color<%=goodsColorList[i]._id%>"><%=goodsColorList[i].color_name%></label>
                                             <%}%>
                              
-        
                                          </li>
         
         
                                          <li> <span>关联商品:</span>
-                                            
                                                 <input type="text" name="relation_goods" class="relation_goods"/>  <i>填写关联商品的id 多个以逗号隔开 格式：23,24,39</i>
-                                            
                                         </li>      
                                         
                                         
                                         <li> <span>关联赠品:</span>
-                                            
                                                 <input type="text" name="goods_gift" class="goods_gift"/>  <i>可为空 格式：23-2,39-5 说明：例如23-2 中的23表示商品id,2表示商品数量</i>
-                                            
                                         </li>    
                                         <li> <span>关联配件:</span>
-                                            
                                             <input type="text" name="goods_fitting" class="goods_fitting"/>  <i>可为空 格式：23-2,39-5 说明：例如23-2 中的23表示商品id,2表示商品数量</i>
-                                        
                                         </li>    
         
         
                                         <li> <span>更多属性:</span>
-                                            
-                                                <input type="text" name="goods_attr" class="goods_attr"/>  <i> 格式:  颜色:红色,白色,黄色 | 尺寸:41,42,43</i>
-                                            
+                                            <input type="text" name="goods_attrs" />  <i> 格式:  颜色:红色,白色,黄色 | 尺寸:41,42,43</i>
                                         </li>
-                                 
+                                        
+                                        <li> <span>Seo关键字:</span>
+                                            <input type="text" name="goods_keywords" class="goods_attr"/>  
+                                        </li>
+
+                                        <li> <span>Seo描述:</span>
+                                            <textarea name="goods_desc" cols="60" rows="3"></textarea>
+                                        </li>
                                        
-                                         
                                         
                                 </ul>
                         </div>
@@ -124,7 +128,7 @@ src="/public/admin/wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
                         <div role="tabpanel" class="tab-pane" id="attribute">
 
                                 规格与包装
-                                <select name="" id="attribute_select">
+                                <select name="attribute_id" id="attribute_select">
                                     <option value="0">--请选择规格与包装--</option>
                                     <%for(let i=0; i<goodsTypeList.length; i++){%>
                                         <option value="<%=goodsTypeList[i]._id%>"><%=goodsTypeList[i].title%></option>
@@ -142,6 +146,7 @@ src="/public/admin/wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
                         <div role="tabpanel" class="tab-pane" id="photo">
 
                                 <div id="photoLib"></div>
+                                <div id="photoList"></div>
                         </div>
 
                     </div>
@@ -168,15 +173,15 @@ src="/public/admin/wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
                             $.get("/admin/goodsTypeAttribute/getByCateId?cate_id="+val, function(response){
                                 let data = response.data;
 
-                                let str = `<input type="hidden" name="id" value="${val}" /> `;
+                                let str = ``;
                                 for(let i=0; i<data.length; i++){
 
                                     if(data[i].attr_type ==1){
-                                        str += `<li> <span>${data[i].title}:</span> <input type="text" name="attr_id_list[]" /> </i>`
+                                        str += `<li> <span>${data[i].title}:</span> <input type="text" name="attr_id_list" /> </i>`
                                     }else if(data[i].attr_type ==2){
-                                        str += `<li> <span>${data[i].title}:</span> <textarea  name="attr_id_list[]" cols="60" row="8" ></textarea> </i>`
+                                        str += `<li> <span>${data[i].title}:</span> <textarea  name="attr_id_list" cols="60" row="8" ></textarea> </i>`
                                     }else{
-                                        str += `<li> <span>${data[i].title}:</span> <select  name="attr_id_list[]" > `;
+                                        str += `<li> <span>${data[i].title}:</span> <select  name="attr_id_list" > `;
                                             let values = data[i].attr_value.split("\n");
                                             console.log(values);
                                             for(let j=0; j<values.length; j++){
@@ -224,11 +229,16 @@ src="/public/admin/wysiwyg-editor/js/froala_editor.pkgd.min.js"></script>
                         url: "/admin/goods/uploadPhoto",
                         success: function(data){
                             console.log(data);
+                            photoStr = `<input type="hidden" name="img_url" value="${data.link}"  />`
+                            //上传完,
+                            $("#photoList").append(photoStr);
                         },
                         error: function(err){
                             console.log(err);
                         }
                     });
+
+                    
                     
                 })
 

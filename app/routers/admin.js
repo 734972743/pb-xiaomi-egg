@@ -7,6 +7,7 @@ module.exports = app => {
   const { router, controller } = app;
 
   router.redirect("/", "/admin"); // 路由重定向
+  //后台管理系统的路由必须是以/admin 开头的，否则左侧导航栏拿不到数据，会报错
   router.get("/admin", controller.admin.main.index); 
   router.get("/admin/main/welcome", controller.admin.main.welcome); 
 

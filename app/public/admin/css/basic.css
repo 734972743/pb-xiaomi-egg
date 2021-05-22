@@ -149,6 +149,10 @@ input[type=file]{
     text-align: right;
 }
 
+.form_input li .pic{
+    width: 100px;
+}
+
 
 .input{
     width: 400px;
